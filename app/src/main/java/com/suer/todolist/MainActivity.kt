@@ -1,12 +1,11 @@
-package suer.todolist
+package com.suer.todolist
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.suer.todolist.adapter.TodoAdapter
 import com.suer.todolist.databinding.ActivityMainBinding
-import suer.todolist.adapter.TodoAdapter
-import suer.todolist.databinding.ActivityMainBinding
-import suer.todolist.model.TodoItem
+import com.suer.todolist.model.TodoItem
 
 class MainActivity : AppCompatActivity() {
 

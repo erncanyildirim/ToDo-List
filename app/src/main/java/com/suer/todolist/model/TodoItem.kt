@@ -1,4 +1,4 @@
-package suer.todolist.model
+package com.suer.todolist.model
 
 data class TodoItem(
     val id: Long,
