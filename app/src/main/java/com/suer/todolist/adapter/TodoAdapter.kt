@@ -1,5 +1,7 @@
 package com.suer.todolist.adapter
 
+import android.content.Intent
+import android.provider.CalendarContract
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -15,6 +17,16 @@ class TodoAdapter(
         : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: TodoItem) {
             binding.tvTask.text = item.text
+            binding.btnAddToCalendar.setOnClickListener {
+                val startMillis = System.currentTimeMillis()
+                val intent = Intent(Intent.ACTION_INSERT).apply {
+                    data = CalendarContract.Events.CONTENT_URI
+                    putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, startMillis)
+                    putExtra(CalendarContract.EXTRA_EVENT_END_TIME, startMillis + 60 * 60 * 1000)
+                    putExtra(CalendarContract.Events.TITLE, item.text)
+                }
+                binding.root.context.startActivity(intent)
+            }
             binding.root.setOnLongClickListener {
                 onDelete(item)
                 true
