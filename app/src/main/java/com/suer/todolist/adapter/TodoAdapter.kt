@@ -1,11 +1,10 @@
-package suer.todolist.adapter
+package com.suer.todolist.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.suer.todolist.databinding.ItemTaskBinding
-import suer.todolist.databinding.ItemTaskBinding
-import suer.todolist.model.TodoItem
+import com.suer.todolist.model.TodoItem
 
 class TodoAdapter(
     private val items: MutableList<TodoItem>,
