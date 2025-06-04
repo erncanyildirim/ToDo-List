@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.suer.todolist.adapter.TodoAdapter
 import com.suer.todolist.databinding.ActivityMainBinding
-import com.suer.todolist.model.TodoItem
 
 class MainActivity : AppCompatActivity() {
 
@@ -34,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         val text = binding.etTask.text.toString().trim()
         if (text.isEmpty()) return
 
-        val newItem = TodoItem(id = nextId++, text = text)
+        val newItem = com.suer.todolist.model.TodoItem(id = nextId++, text = text)
         adapter.add(newItem)
         binding.etTask.setText("")
         binding.rvTasks.scrollToPosition(0)
