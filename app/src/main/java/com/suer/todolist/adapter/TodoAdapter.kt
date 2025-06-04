@@ -4,16 +4,15 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.suer.todolist.databinding.ItemTaskBinding
-import com.suer.todolist.model.TodoItem
 
 class TodoAdapter(
-    private val items: MutableList<TodoItem>,
-    private val onDelete: (TodoItem) -> Unit
+    private val items: MutableList<com.suer.todolist.model.TodoItem>,
+    private val onDelete: (com.suer.todolist.model.TodoItem) -> Unit
 ) : RecyclerView.Adapter<TodoAdapter.TodoViewHolder>() {
 
     inner class TodoViewHolder(val binding: ItemTaskBinding)
         : RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: TodoItem) {
+        fun bind(item: com.suer.todolist.model.TodoItem) {
             binding.tvTask.text = item.text
             binding.root.setOnLongClickListener {
                 onDelete(item)
@@ -34,12 +33,12 @@ class TodoAdapter(
 
     override fun getItemCount() = items.size
 
-    fun add(item: TodoItem) {
+    fun add(item: com.suer.todolist.model.TodoItem) {
         items.add(0, item)
         notifyItemInserted(0)
     }
 
-    fun remove(item: TodoItem) {
+    fun remove(item: com.suer.todolist.model.TodoItem) {
         val index = items.indexOfFirst { it.id == item.id }
         if (index != -1) {
             items.removeAt(index)
